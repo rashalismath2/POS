@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ap
 {
-    public partial class frmLogin : Form
+    public partial class frmAddCustomer : Form
     {
-        public frmLogin()
+        public frmAddCustomer()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

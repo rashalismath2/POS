@@ -1,0 +1,12 @@
+D:\installed programs\v# projects\ap\ap\bin\Debug\ap.exe.config
+D:\installed programs\v# projects\ap\ap\bin\Debug\ap.exe
+D:\installed programs\v# projects\ap\ap\bin\Debug\ap.pdb
+D:\installed programs\v# projects\ap\ap\obj\Debug\UI.csprojResolveAssemblyReference.cache
+D:\installed programs\v# projects\ap\ap\obj\Debug\ap.frmLogin.resources
+D:\installed programs\v# projects\ap\ap\obj\Debug\ap.frmSignup.resources
+D:\installed programs\v# projects\ap\ap\obj\Debug\ap.Properties.Resources.resources
+D:\installed programs\v# projects\ap\ap\obj\Debug\UI.csproj.GenerateResource.Cache
+D:\installed programs\v# projects\ap\ap\obj\Debug\ap.exe
+D:\installed programs\v# projects\ap\ap\obj\Debug\ap.pdb
+D:\installed programs\v# projects\ap\ap\obj\Debug\ap.frmdashboard.resources
+D:\installed programs\v# projects\ap\ap\obj\Debug\ap.frmTransactions.resources
