@@ -16,5 +16,15 @@ namespace ap
         {
             InitializeComponent();
         }
+
+        private void btnEmployeeRecords_Click(object sender, EventArgs e)
+        {
+             new frmEmployeeDetails().Show();
+        }
+
+        private void btnEmployeeAttendance_Click(object sender, EventArgs e)
+        {
+            new frmEmployeeAttandnce().Show();
+        }
     }
 }

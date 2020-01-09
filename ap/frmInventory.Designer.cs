@@ -72,6 +72,7 @@
             this.btnUseItem.TabIndex = 1;
             this.btnUseItem.Text = "Use item";
             this.btnUseItem.UseVisualStyleBackColor = true;
+            this.btnUseItem.Click += new System.EventHandler(this.btnUseItem_Click);
             // 
             // frmInventory
             // 

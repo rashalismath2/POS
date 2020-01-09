@@ -7,19 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BL;
 
 namespace ap
 {
     public partial class frmdashboard : Form
     {
-        public frmdashboard()
+        Employee employee;
+        public frmdashboard(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
         }
 
         private void frmdashboard_Load(object sender, EventArgs e)
         {
-            frmTransactions trans = new frmTransactions();
+            lblUserName.Text = this.employee.first_name + " " + this.employee.last_name;
+
+            if (this.employee.role == "cashier") {
+                btnEmployees.Hide();
+                btnReports.Hide();
+                btnInventory.Hide();
+            }
+            else if (this.employee.role == "inventory_manager") {
+                btnEmployees.Hide();
+                btnTransaction.Hide();
+            }
+
+            frmTransactions trans = new frmTransactions(this.employee);
             trans.TopLevel = false;
             pnlMain.Controls.Clear();
             pnlMain.Controls.Add(trans);
@@ -29,7 +44,7 @@ namespace ap
 
         private void btnTransaction_Click(object sender, EventArgs e)
         {
-            frmTransactions trans = new frmTransactions();
+            frmTransactions trans = new frmTransactions(this.employee);
             trans.TopLevel = false;
             pnlMain.Controls.Clear();
             pnlMain.Controls.Add(trans);
@@ -43,6 +58,30 @@ namespace ap
             pnlMain.Controls.Clear();
             pnlMain.Controls.Add(cstmr);
             cstmr.Show();
+        }
+
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+            frmEmployees emp = new frmEmployees();
+            emp.TopLevel = false;
+            pnlMain.Controls.Clear();
+            pnlMain.Controls.Add(emp);
+            emp.Show();
+
+        }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            frmInventory inventory = new frmInventory();
+            inventory.TopLevel = false;
+            pnlMain.Controls.Clear();
+            pnlMain.Controls.Add(inventory);
+            inventory.Show();
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

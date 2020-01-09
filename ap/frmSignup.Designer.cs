@@ -39,22 +39,25 @@
             this.lblSignupLastName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBranchAddress = new System.Windows.Forms.ComboBox();
+            this.lblRole = new System.Windows.Forms.Label();
+            this.comboSignupRole = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnSignup
             // 
             this.btnSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignup.Location = new System.Drawing.Point(353, 311);
+            this.btnSignup.Location = new System.Drawing.Point(353, 343);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(101, 34);
             this.btnSignup.TabIndex = 9;
             this.btnSignup.Text = "Signup";
             this.btnSignup.UseVisualStyleBackColor = true;
+            this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
             // 
             // txtSignupPassword
             // 
             this.txtSignupPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSignupPassword.Location = new System.Drawing.Point(234, 255);
+            this.txtSignupPassword.Location = new System.Drawing.Point(234, 287);
             this.txtSignupPassword.Name = "txtSignupPassword";
             this.txtSignupPassword.Size = new System.Drawing.Size(220, 30);
             this.txtSignupPassword.TabIndex = 8;
@@ -63,7 +66,7 @@
             // 
             this.lblSignupPassword.AutoSize = true;
             this.lblSignupPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSignupPassword.Location = new System.Drawing.Point(76, 260);
+            this.lblSignupPassword.Location = new System.Drawing.Point(76, 292);
             this.lblSignupPassword.Name = "lblSignupPassword";
             this.lblSignupPassword.Size = new System.Drawing.Size(98, 25);
             this.lblSignupPassword.TabIndex = 7;
@@ -72,7 +75,7 @@
             // txtSignupEmail
             // 
             this.txtSignupEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSignupEmail.Location = new System.Drawing.Point(234, 207);
+            this.txtSignupEmail.Location = new System.Drawing.Point(234, 243);
             this.txtSignupEmail.Name = "txtSignupEmail";
             this.txtSignupEmail.Size = new System.Drawing.Size(220, 30);
             this.txtSignupEmail.TabIndex = 6;
@@ -81,7 +84,7 @@
             // 
             this.lblSignupEmail.AutoSize = true;
             this.lblSignupEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSignupEmail.Location = new System.Drawing.Point(76, 210);
+            this.lblSignupEmail.Location = new System.Drawing.Point(76, 245);
             this.lblSignupEmail.Name = "lblSignupEmail";
             this.lblSignupEmail.Size = new System.Drawing.Size(60, 25);
             this.lblSignupEmail.TabIndex = 5;
@@ -142,11 +145,36 @@
             this.comboBranchAddress.Size = new System.Drawing.Size(220, 33);
             this.comboBranchAddress.TabIndex = 16;
             // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRole.Location = new System.Drawing.Point(77, 204);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(51, 25);
+            this.lblRole.TabIndex = 17;
+            this.lblRole.Text = "Role";
+            // 
+            // comboSignupRole
+            // 
+            this.comboSignupRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboSignupRole.FormattingEnabled = true;
+            this.comboSignupRole.Items.AddRange(new object[] {
+            "cashier",
+            "admin",
+            "inventory_manager"});
+            this.comboSignupRole.Location = new System.Drawing.Point(234, 201);
+            this.comboSignupRole.Name = "comboSignupRole";
+            this.comboSignupRole.Size = new System.Drawing.Size(220, 33);
+            this.comboSignupRole.TabIndex = 18;
+            // 
             // frmSignup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 426);
+            this.Controls.Add(this.comboSignupRole);
+            this.Controls.Add(this.lblRole);
             this.Controls.Add(this.comboBranchAddress);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSignupLastName);
@@ -160,6 +188,7 @@
             this.Controls.Add(this.lblSignupEmail);
             this.Name = "frmSignup";
             this.Text = "Signup";
+            this.Load += new System.EventHandler(this.frmSignup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +207,7 @@
         private System.Windows.Forms.Label lblSignupLastName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBranchAddress;
+        private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.ComboBox comboSignupRole;
     }
 }

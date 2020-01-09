@@ -1,0 +1,5 @@
+D:\installed programs\v# projects\ap\BL\bin\Debug\BL.dll
+D:\installed programs\v# projects\ap\BL\bin\Debug\BL.pdb
+D:\installed programs\v# projects\ap\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+D:\installed programs\v# projects\ap\BL\obj\Debug\BL.dll
+D:\installed programs\v# projects\ap\BL\obj\Debug\BL.pdb

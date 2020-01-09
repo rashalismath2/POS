@@ -1,0 +1,15 @@
+D:\installed programs\v# projects\ap\DAO\bin\Debug\DAO.dll
+D:\installed programs\v# projects\ap\DAO\bin\Debug\DAO.pdb
+D:\installed programs\v# projects\ap\DAO\bin\Debug\Dapper.Contrib.dll
+D:\installed programs\v# projects\ap\DAO\bin\Debug\Dapper.dll
+D:\installed programs\v# projects\ap\DAO\bin\Debug\Dapper.xml
+D:\installed programs\v# projects\ap\DAO\bin\Debug\Dapper.Contrib.xml
+D:\installed programs\v# projects\ap\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+D:\installed programs\v# projects\ap\DAO\obj\Debug\DAO.dll
+D:\installed programs\v# projects\ap\DAO\obj\Debug\DAO.pdb
+D:\installed programs\v# projects\ap\DAO\bin\Debug\BL.dll
+D:\installed programs\v# projects\ap\DAO\bin\Debug\MySql.Data.dll
+D:\installed programs\v# projects\ap\DAO\bin\Debug\Google.Protobuf.dll
+D:\installed programs\v# projects\ap\DAO\bin\Debug\BouncyCastle.Crypto.dll
+D:\installed programs\v# projects\ap\DAO\bin\Debug\BL.pdb
+D:\installed programs\v# projects\ap\DAO\bin\Debug\MySql.Data.xml

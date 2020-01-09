@@ -41,6 +41,7 @@
             this.btnEmployeeRecords.TabIndex = 0;
             this.btnEmployeeRecords.Text = "Records";
             this.btnEmployeeRecords.UseVisualStyleBackColor = true;
+            this.btnEmployeeRecords.Click += new System.EventHandler(this.btnEmployeeRecords_Click);
             // 
             // btnEmployeeAttendance
             // 
@@ -51,6 +52,7 @@
             this.btnEmployeeAttendance.TabIndex = 1;
             this.btnEmployeeAttendance.Text = "Attandance";
             this.btnEmployeeAttendance.UseVisualStyleBackColor = true;
+            this.btnEmployeeAttendance.Click += new System.EventHandler(this.btnEmployeeAttendance_Click);
             // 
             // frmEmployees
             // 

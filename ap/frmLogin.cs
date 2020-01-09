@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BL;
+using DAO;
 
 namespace ap
 {
@@ -19,7 +21,29 @@ namespace ap
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            Employee employee = new EmployeeDAO().getEmployeeByEmail(txtemail.Text);
+            if (employee!= null) {
+                if (employee.password==txtPassword.Text) {
+                    
+                    frmdashboard dashboard = new frmdashboard(employee);
+                    dashboard.Show();
+                    this.Hide();
+                } else {
+                    MessageBox.Show("Error in login. Check credentials", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
+            else {
+                MessageBox.Show("Error in login. Check credentials", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
             
+        }
+
+        private void lblSignup_Click(object sender, EventArgs e)
+        {
+            frmSignup signupForm = new frmSignup();
+            signupForm.Show();
+            this.Hide();
         }
     }
 }

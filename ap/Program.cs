@@ -16,7 +16,7 @@ namespace ap
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmdashboard());
+            Application.Run(new frmLogin());
         }
     }
 }

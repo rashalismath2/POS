@@ -43,6 +43,7 @@
             this.txtPaid = new System.Windows.Forms.TextBox();
             this.btnDoTrans = new System.Windows.Forms.Button();
             this.listCheckouts = new System.Windows.Forms.ListBox();
+            this.btnSearchProduct = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtCustomerEmailInput
@@ -63,11 +64,12 @@
             this.btnNewCustomer.TabIndex = 2;
             this.btnNewCustomer.Text = "New";
             this.btnNewCustomer.UseVisualStyleBackColor = true;
+            this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
             // 
             // txtProductname
             // 
             this.txtProductname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductname.Location = new System.Drawing.Point(455, 95);
+            this.txtProductname.Location = new System.Drawing.Point(406, 98);
             this.txtProductname.Name = "txtProductname";
             this.txtProductname.Size = new System.Drawing.Size(199, 30);
             this.txtProductname.TabIndex = 3;
@@ -76,7 +78,7 @@
             // 
             this.lblProductName.AutoSize = true;
             this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductName.Location = new System.Drawing.Point(300, 100);
+            this.lblProductName.Location = new System.Drawing.Point(265, 100);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(136, 25);
             this.lblProductName.TabIndex = 4;
@@ -86,7 +88,7 @@
             // 
             this.lblQuentity.AutoSize = true;
             this.lblQuentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuentity.Location = new System.Drawing.Point(300, 179);
+            this.lblQuentity.Location = new System.Drawing.Point(265, 179);
             this.lblQuentity.Name = "lblQuentity";
             this.lblQuentity.Size = new System.Drawing.Size(85, 25);
             this.lblQuentity.TabIndex = 6;
@@ -95,7 +97,7 @@
             // txtQuentity
             // 
             this.txtQuentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuentity.Location = new System.Drawing.Point(455, 174);
+            this.txtQuentity.Location = new System.Drawing.Point(406, 177);
             this.txtQuentity.Name = "txtQuentity";
             this.txtQuentity.Size = new System.Drawing.Size(199, 30);
             this.txtQuentity.TabIndex = 5;
@@ -104,7 +106,7 @@
             // 
             this.lblUnitPrice.AutoSize = true;
             this.lblUnitPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnitPrice.Location = new System.Drawing.Point(300, 138);
+            this.lblUnitPrice.Location = new System.Drawing.Point(265, 138);
             this.lblUnitPrice.Name = "lblUnitPrice";
             this.lblUnitPrice.Size = new System.Drawing.Size(93, 25);
             this.lblUnitPrice.TabIndex = 8;
@@ -112,8 +114,9 @@
             // 
             // txtUnitPrice
             // 
+            this.txtUnitPrice.Enabled = false;
             this.txtUnitPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitPrice.Location = new System.Drawing.Point(455, 133);
+            this.txtUnitPrice.Location = new System.Drawing.Point(406, 136);
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(199, 30);
             this.txtUnitPrice.TabIndex = 7;
@@ -121,18 +124,19 @@
             // btnAddToList
             // 
             this.btnAddToList.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddToList.Location = new System.Drawing.Point(561, 223);
+            this.btnAddToList.Location = new System.Drawing.Point(512, 226);
             this.btnAddToList.Name = "btnAddToList";
             this.btnAddToList.Size = new System.Drawing.Size(93, 30);
             this.btnAddToList.TabIndex = 9;
             this.btnAddToList.Text = "Add";
             this.btnAddToList.UseVisualStyleBackColor = true;
+            this.btnAddToList.Click += new System.EventHandler(this.btnAddToList_Click);
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(304, 289);
+            this.lblTotal.Location = new System.Drawing.Point(269, 289);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(56, 25);
             this.lblTotal.TabIndex = 11;
@@ -142,7 +146,7 @@
             // 
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(397, 286);
+            this.txtTotal.Location = new System.Drawing.Point(362, 286);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(199, 30);
             this.txtTotal.TabIndex = 10;
@@ -152,7 +156,7 @@
             // 
             this.lblPaid.AutoSize = true;
             this.lblPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaid.Location = new System.Drawing.Point(304, 336);
+            this.lblPaid.Location = new System.Drawing.Point(269, 336);
             this.lblPaid.Name = "lblPaid";
             this.lblPaid.Size = new System.Drawing.Size(51, 25);
             this.lblPaid.TabIndex = 13;
@@ -161,7 +165,7 @@
             // txtPaid
             // 
             this.txtPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPaid.Location = new System.Drawing.Point(397, 333);
+            this.txtPaid.Location = new System.Drawing.Point(362, 333);
             this.txtPaid.Name = "txtPaid";
             this.txtPaid.Size = new System.Drawing.Size(199, 30);
             this.txtPaid.TabIndex = 12;
@@ -170,12 +174,13 @@
             // btnDoTrans
             // 
             this.btnDoTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoTrans.Location = new System.Drawing.Point(493, 382);
+            this.btnDoTrans.Location = new System.Drawing.Point(458, 382);
             this.btnDoTrans.Name = "btnDoTrans";
             this.btnDoTrans.Size = new System.Drawing.Size(161, 30);
             this.btnDoTrans.TabIndex = 14;
             this.btnDoTrans.Text = "Do Transaction";
             this.btnDoTrans.UseVisualStyleBackColor = true;
+            this.btnDoTrans.Click += new System.EventHandler(this.btnDoTrans_Click);
             // 
             // listCheckouts
             // 
@@ -183,18 +188,30 @@
             this.listCheckouts.FormattingEnabled = true;
             this.listCheckouts.ItemHeight = 20;
             this.listCheckouts.Items.AddRange(new object[] {
-            "Name Quentity Unit Price",
-            ""});
-            this.listCheckouts.Location = new System.Drawing.Point(24, 95);
+            "Name | Quentity | Unit Price",
+            "---------------------------------------------"});
+            this.listCheckouts.Location = new System.Drawing.Point(8, 101);
             this.listCheckouts.Name = "listCheckouts";
-            this.listCheckouts.Size = new System.Drawing.Size(270, 324);
+            this.listCheckouts.Size = new System.Drawing.Size(250, 324);
             this.listCheckouts.TabIndex = 0;
+            // 
+            // btnSearchProduct
+            // 
+            this.btnSearchProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchProduct.Location = new System.Drawing.Point(605, 99);
+            this.btnSearchProduct.Name = "btnSearchProduct";
+            this.btnSearchProduct.Size = new System.Drawing.Size(66, 27);
+            this.btnSearchProduct.TabIndex = 15;
+            this.btnSearchProduct.Text = "Search";
+            this.btnSearchProduct.UseVisualStyleBackColor = true;
+            this.btnSearchProduct.Click += new System.EventHandler(this.btnSearchProduct_Click);
             // 
             // frmTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 437);
+            this.Controls.Add(this.btnSearchProduct);
             this.Controls.Add(this.listCheckouts);
             this.Controls.Add(this.btnDoTrans);
             this.Controls.Add(this.lblPaid);
@@ -234,5 +251,6 @@
         private System.Windows.Forms.TextBox txtPaid;
         private System.Windows.Forms.Button btnDoTrans;
         private System.Windows.Forms.ListBox listCheckouts;
+        private System.Windows.Forms.Button btnSearchProduct;
     }
 }

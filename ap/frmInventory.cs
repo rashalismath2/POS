@@ -16,5 +16,10 @@ namespace ap
         {
             InitializeComponent();
         }
+
+        private void btnUseItem_Click(object sender, EventArgs e)
+        {
+            new frmUseInventoryItem().Show();
+        }
     }
 }
