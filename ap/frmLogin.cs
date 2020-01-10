@@ -25,7 +25,11 @@ namespace ap
             Employee employee = new EmployeeDAO().getEmployeeByEmail(txtemail.Text);
             if (employee!= null) {
                 if (employee.password==txtPassword.Text) {
-                    
+
+                    UI.Properties.Settings.Default.email = txtemail.Text;
+                    UI.Properties.Settings.Default.password = txtPassword.Text;
+                    UI.Properties.Settings.Default.Save();
+
                     frmdashboard dashboard = new frmdashboard(employee);
                     dashboard.Show();
                     this.Hide();
@@ -44,6 +48,11 @@ namespace ap
             frmSignup signupForm = new frmSignup();
             signupForm.Show();
             this.Hide();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

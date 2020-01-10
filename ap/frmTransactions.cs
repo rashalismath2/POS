@@ -17,6 +17,9 @@ namespace ap
         Employee employee;
         int unitprice=0;
         int total=0;
+        List<SaleProduct> searchedProducts=new List<SaleProduct>();
+        List<SaleProduct> salesProducts=new List<SaleProduct>();
+        Customer customer;
 
         public frmTransactions(Employee employee)
         {
@@ -26,7 +29,13 @@ namespace ap
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
         {
-            new frmAddCustomer().Show();
+            new frmAddCustomer(this.employee.branch,this).Show();
+        }
+
+        //getting the saved customer back from frmAddCustomer
+        public void getCustomer(Customer customer) {
+            this.customer = customer;
+            txtCustomerEmailInput.Text = customer.email;
         }
 
         private void btnAddToList_Click(object sender, EventArgs e)
@@ -35,6 +44,12 @@ namespace ap
             int quentity =int.Parse(txtQuentity.Text);
             if (txtUnitPrice.Text != "")
             {
+                foreach (SaleProduct prod in searchedProducts) {
+                    if (prod.name== prdctname) {
+                        salesProducts.Add(prod);
+                    }
+                }
+
                 listCheckouts.Items.Add(prdctname + " | " + quentity + " | " + unitprice.ToString());
                 txtUnitPrice.Text = "";
                 txtProductname.Text = "";
@@ -54,6 +69,7 @@ namespace ap
                 SaleProduct product = new ProductDAO().getSalesProduct(this.employee.branch, txtProductname.Text);
                 if (product != null)
                 {
+                    this.searchedProducts.Add(product);
                     this.unitprice = product.unitPrice;
                     txtUnitPrice.Text = product.unitPrice.ToString();
                 }
@@ -70,17 +86,56 @@ namespace ap
 
         private void btnDoTrans_Click(object sender, EventArgs e)
         {
+        
             int paid = int.Parse(txtPaid.Text);
 
             if (paid >= this.total)
             {
                 txtPaid.Enabled = false;
                 int balance = this.total - paid;
-                MessageBox.Show("Transaction added", "success message");
+
+                if (this.customer==null) {
+                    if (txtCustomerEmailInput.Text=="") {
+                        MessageBox.Show("Please add a customer email", "customer not found");
+                    }
+                    else {
+                        customer= new CustomerDAO().getCustomerByEmail(txtCustomerEmailInput.Text);
+                    }
+                }
+
+                Transaction transaction = new Transaction
+                {
+                    customer = this.customer,
+                    employee = this.employee,
+                    saleProducts = this.salesProducts
+                };
+
+                bool saved = new TransactionDAO().saveTransactions(transaction);
+
+                if (saved)
+                {
+                    MessageBox.Show("Transaction added", "success message");
+                }
+                else
+                {
+                    MessageBox.Show("Couldnt add the transaction", "error message");
+                }
+
+
             }
             else {
                 MessageBox.Show("Check for the paid amount", "Input error");
             }
+        }
+
+        private void CsutomerEmailFieldclicked(object sender, EventArgs e)
+        {
+            txtCustomerEmailInput.Text = "";
+        }
+
+        private void frmTransactions_Load(object sender, EventArgs e)
+        {
+            txtCustomerEmailInput.Text = "";
         }
     }
 }

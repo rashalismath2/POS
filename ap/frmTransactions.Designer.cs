@@ -54,6 +54,7 @@
             this.txtCustomerEmailInput.Size = new System.Drawing.Size(199, 30);
             this.txtCustomerEmailInput.TabIndex = 1;
             this.txtCustomerEmailInput.Text = "Customer Email ";
+            this.txtCustomerEmailInput.Click += new System.EventHandler(this.CsutomerEmailFieldclicked);
             // 
             // btnNewCustomer
             // 
@@ -230,6 +231,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTransactions";
             this.Text = "Transactions";
+            this.Load += new System.EventHandler(this.frmTransactions_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
