@@ -20,6 +20,12 @@ namespace ap
             this.employee = employee;
         }
 
+        //after logout user will remain if we didnt set the new login user
+        public void setUser(Employee emp) {
+            this.employee = emp;
+            frmdashboard_Load(null,null);
+        }
+
         private void frmdashboard_Load(object sender, EventArgs e)
         {
             lblUserName.Text = this.employee.first_name + " " + this.employee.last_name;
@@ -32,6 +38,13 @@ namespace ap
             else if (this.employee.role == "inventory_manager") {
                 btnEmployees.Hide();
                 btnTransaction.Hide();
+            }
+            else if (this.employee.role == "admin")
+            {
+                btnEmployees.Show();
+                btnReports.Show();
+                btnInventory.Show();
+                btnTransaction.Show();
             }
 
             frmTransactions trans = new frmTransactions(this.employee);
@@ -53,7 +66,7 @@ namespace ap
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            frmCustomer cstmr = new frmCustomer();
+            frmCustomer cstmr = new frmCustomer(this.employee);
             cstmr.TopLevel = false;
             pnlMain.Controls.Clear();
             pnlMain.Controls.Add(cstmr);
@@ -82,6 +95,15 @@ namespace ap
         private void btnReports_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            UI.Properties.Settings.Default.email ="" ;
+            UI.Properties.Settings.Default.password ="";
+            UI.Properties.Settings.Default.Save();
+            this.Hide();
+            new frmLogin(this).Show();
         }
     }
 }

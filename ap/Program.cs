@@ -28,12 +28,12 @@ namespace ap
                     Application.Run(new frmdashboard(employee));
                 }
                 else {
-                    Application.Run(new frmLogin());
+                    Application.Run(new frmLogin(null));
                 }
 
             }
             else {
-                Application.Run(new frmLogin());
+                Application.Run(new frmLogin(null));
             }
         }
     }

@@ -43,6 +43,17 @@ namespace ap
                         password= txtSignupPassword.Text
                     };
                     break;
+                case "admin":
+                    emp = new Admin
+                    {
+                        first_name = txtSignupFIrstName.Text,
+                        last_name = txtSignupLastName.Text,
+                        email = txtSignupEmail.Text,
+                        role = comboSignupRole.Text,
+                        branch = branch,
+                        password = txtSignupPassword.Text
+                    };
+                    break;
                 default:
                     emp = null;
                     break;

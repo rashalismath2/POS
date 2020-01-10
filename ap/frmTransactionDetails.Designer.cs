@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridCustomerTrans = new System.Windows.Forms.DataGridView();
-            this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quentity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1lblTotalCustoemrTrans = new System.Windows.Forms.Label();
             this.txtTotalCustomerTransactions = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCustomerTrans)).BeginInit();
@@ -41,35 +37,11 @@
             // dataGridCustomerTrans
             // 
             this.dataGridCustomerTrans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCustomerTrans.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productname,
-            this.quentity,
-            this.date,
-            this.total});
             this.dataGridCustomerTrans.Location = new System.Drawing.Point(12, 49);
             this.dataGridCustomerTrans.Name = "dataGridCustomerTrans";
             this.dataGridCustomerTrans.Size = new System.Drawing.Size(447, 262);
             this.dataGridCustomerTrans.TabIndex = 0;
-            // 
-            // productname
-            // 
-            this.productname.HeaderText = "Product Name";
-            this.productname.Name = "productname";
-            // 
-            // quentity
-            // 
-            this.quentity.HeaderText = "Quentity";
-            this.quentity.Name = "quentity";
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
+            this.dataGridCustomerTrans.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCustomerTrans_CellContentClick);
             // 
             // label1lblTotalCustoemrTrans
             // 
@@ -102,6 +74,7 @@
             this.MaximizeBox = false;
             this.Name = "frmTransactionDetails";
             this.Text = "Transactions";
+            this.Load += new System.EventHandler(this.frmTransactionDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCustomerTrans)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -111,10 +84,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridCustomerTrans;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quentity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.Label label1lblTotalCustoemrTrans;
         private System.Windows.Forms.TextBox txtTotalCustomerTransactions;
     }

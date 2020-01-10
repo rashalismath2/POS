@@ -14,9 +14,11 @@ namespace ap
 {
     public partial class frmLogin : Form
     {
-        public frmLogin()
+        frmdashboard dashboard;
+        public frmLogin(frmdashboard dashboard)
         {
             InitializeComponent();
+            this.dashboard = dashboard;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,9 +32,16 @@ namespace ap
                     UI.Properties.Settings.Default.password = txtPassword.Text;
                     UI.Properties.Settings.Default.Save();
 
-                    frmdashboard dashboard = new frmdashboard(employee);
-                    dashboard.Show();
-                    this.Hide();
+                    if (this.dashboard==null) {
+                        frmdashboard dashboard = new frmdashboard(employee);
+                        dashboard.Show();
+                        this.Hide();
+                    }
+                    else {
+                        this.dashboard.setUser(employee);
+                        this.dashboard.Show();
+                        this.Hide();
+                    }
                 } else {
                     MessageBox.Show("Error in login. Check credentials", "Login error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }

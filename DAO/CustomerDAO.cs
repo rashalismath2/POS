@@ -11,6 +11,22 @@ namespace DAO
 {
     public class CustomerDAO
     {
+
+        public List<Customer> getAllSalesProducts(Branch branch)
+        {
+            using (MySqlConnection connection = getConnection())
+            {
+                string query = "select * from customer where branch_id=@branch_id";
+                List<Customer> customerList = connection.Query<Customer>(query, new { branch_id = branch.id }).ToList();
+
+                if (customerList != null)
+                {
+                    return customerList;
+                }
+                return null;
+            }
+        }
+
         public Customer saveCustomer(Customer customer)
         {
 

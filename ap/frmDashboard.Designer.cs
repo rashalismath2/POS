@@ -36,11 +36,13 @@
             this.btnTransaction = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.groupSideButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupSideButtons
             // 
+            this.groupSideButtons.Controls.Add(this.btnLogout);
             this.groupSideButtons.Controls.Add(this.btnReports);
             this.groupSideButtons.Controls.Add(this.btnCustomer);
             this.groupSideButtons.Controls.Add(this.btnEmployees);
@@ -128,6 +130,17 @@
             this.lblUserName.TabIndex = 2;
             this.lblUserName.Text = "UserName";
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(31, 456);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(124, 35);
+            this.btnLogout.TabIndex = 5;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // frmdashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,5 +170,6 @@
         private System.Windows.Forms.Button btnEmployees;
         private System.Windows.Forms.Button btnInventory;
         private System.Windows.Forms.Button btnTransaction;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

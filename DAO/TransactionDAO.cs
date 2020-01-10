@@ -16,13 +16,14 @@ namespace DAO
 
             using (MySqlConnection connection = getConnection())
             {
-                string query = @"insert into transaction (customer_id,employee_id,date) 
-                        values(@customer_id,@employee_id,@date)";
+                string query = @"insert into transaction (customer_id,employee_id,date,total) 
+                        values(@customer_id,@employee_id,@date,@total)";
                 DateTime date = DateTime.Now;
                 int affectedRows=connection.Execute(query, new {
                        customer_id=transaction.customer.id,
                        employee_id=transaction.employee.id,
-                       date= date
+                       date= date,
+                       total= transaction.total
                 });
                 if (affectedRows>0) {
                     Transaction savedTransaction = getTransaction(transaction.customer.id,transaction.employee.id,date);
@@ -58,7 +59,7 @@ namespace DAO
 
             }
         }
-
+        //getTransaction(customer.id, this.employee.branch)
         public Transaction getTransaction(int customerId,int employeeId,DateTime date) {
 
             using (MySqlConnection connection = getConnection())
@@ -77,7 +78,64 @@ namespace DAO
                 return null;
             }
         
-    }
+        }
+
+        public List<Transaction> getTransactionForTheCustomer(int customerId)
+        {
+
+            using (MySqlConnection connection = getConnection())
+            {
+                string query = @" select 
+                         t.id as transaction_id,
+                         t.total as total,
+                         t.date as date,
+                          t.employee_id as employee_id,
+                         sp.id as product_id,
+                         sp.name as product_name,
+                         sp.unitPrice as unit_price,
+                         sp.branch_id as branch_id
+                         from transaction_items as ti inner join saleproducts as sp on sp.id=ti.saleproducts_id
+                        inner join  transaction as t on t.id=ti.transaction_id
+                         where t.customer_id=@customer_id;";
+
+                IEnumerable<dynamic> rows = connection.Query<dynamic>(query,new {
+                    customer_id=customerId
+                });
+
+                List<Transaction> items = new List<Transaction>();
+
+                foreach (var row in rows)
+                {
+                    var fields = row as IDictionary<string, object>;
+
+                    bool found = false;
+                    foreach (Transaction trans in items) {
+                        if (int.Parse(fields["transaction_id"].ToString()) ==trans.id) {
+                            found = true;
+                        }
+                    }
+                    if (!found) {
+                        items.Add(new Transaction {
+                            id =int.Parse(fields["transaction_id"].ToString()),
+                            total=int.Parse(fields["total"].ToString()),
+                            date=(DateTime)fields["date"],
+                            employee = new Cashier {id=int.Parse(fields["employee_id"].ToString()) },
+                            saleProducts=new List<SaleProduct> { new SaleProduct {
+                                id=int.Parse(fields["product_id"].ToString()),
+                                name=fields["product_name"].ToString(),
+                                branch=new Branch { id=int.Parse(fields["branch_id"].ToString())}
+                            } }
+                        });
+                    }
+                     
+                }
+                return items;
+
+            }
+
+        }
+
+
 
         private MySqlConnection getConnection()
         {

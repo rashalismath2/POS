@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridCustomers = new System.Windows.Forms.DataGridView();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchCustomers = new System.Windows.Forms.TextBox();
             this.btnCustomerTrans = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCustomers)).BeginInit();
@@ -43,53 +37,11 @@
             // dataGridCustomers
             // 
             this.dataGridCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FirstName,
-            this.LastName,
-            this.Email,
-            this.Gender,
-            this.Address,
-            this.Contact});
             this.dataGridCustomers.Location = new System.Drawing.Point(16, 73);
             this.dataGridCustomers.Name = "dataGridCustomers";
             this.dataGridCustomers.Size = new System.Drawing.Size(645, 294);
             this.dataGridCustomers.TabIndex = 0;
-            // 
-            // FirstName
-            // 
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            this.Gender.HeaderText = "Gender";
-            this.Gender.Name = "Gender";
-            this.Gender.ReadOnly = true;
-            // 
-            // Address
-            // 
-            this.Address.HeaderText = "Address";
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            // 
-            // Contact
-            // 
-            this.Contact.HeaderText = "Contact";
-            this.Contact.Name = "Contact";
-            this.Contact.ReadOnly = true;
+            this.dataGridCustomers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCustomers_CellContentClick);
             // 
             // txtSearchCustomers
             // 
@@ -109,6 +61,7 @@
             this.btnCustomerTrans.TabIndex = 2;
             this.btnCustomerTrans.Text = "Transactions";
             this.btnCustomerTrans.UseVisualStyleBackColor = true;
+            this.btnCustomerTrans.Click += new System.EventHandler(this.btnCustomerTrans_Click);
             // 
             // frmCustomer
             // 
@@ -121,6 +74,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCustomer";
             this.Text = "Customer";
+            this.Load += new System.EventHandler(this.frmCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCustomers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -130,12 +84,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridCustomers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Contact;
         private System.Windows.Forms.TextBox txtSearchCustomers;
         private System.Windows.Forms.Button btnCustomerTrans;
     }

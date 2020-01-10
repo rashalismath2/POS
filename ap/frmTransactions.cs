@@ -107,7 +107,8 @@ namespace ap
                 {
                     customer = this.customer,
                     employee = this.employee,
-                    saleProducts = this.salesProducts
+                    saleProducts = this.salesProducts,
+                    total=int.Parse(txtTotal.Text)
                 };
 
                 bool saved = new TransactionDAO().saveTransactions(transaction);

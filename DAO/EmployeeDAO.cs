@@ -11,6 +11,22 @@ namespace DAO
 {
     public class EmployeeDAO
     {
+
+        public Employee getEmployeeById(int id)
+        {
+            using (MySqlConnection connection = getConnection())
+            {
+                string query = "select * from employee where id=@id";
+                Employee employee = connection.QuerySingleOrDefault<Employee>(query, new { id = id });
+
+                if (employee != null)
+                {
+                    return employee;
+                }
+                return null;
+            }
+        }
+
         public Employee saveEmployee(Employee emp) {
 
             using (MySqlConnection connection = getConnection()) {
