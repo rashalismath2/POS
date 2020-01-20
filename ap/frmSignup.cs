@@ -20,10 +20,20 @@ namespace ap
             InitializeComponent();
         }
 
+        //get the hash password for the input password
+        private string hashPassword(string inputPassword)
+        {
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(inputPassword);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+
+            return hash;
+        }
         private void btnSignup_Click(object sender, EventArgs e)
         {
             Employee emp;
 
+            //get matching branch for the user by its address
             Branch branch=new BranchDAO().getBranch(comboBranchAddress.Text);
 
             if (branch==null) {
@@ -31,6 +41,7 @@ namespace ap
                 return;
             }
 
+            //sign up user according to its user type
             switch (comboSignupRole.Text) {
                 case "cashier":
                     emp = new Cashier
@@ -40,7 +51,7 @@ namespace ap
                         email=txtSignupEmail.Text,
                         role=comboSignupRole.Text,
                         branch=branch,
-                        password= txtSignupPassword.Text
+                        password= hashPassword(txtSignupPassword.Text)
                     };
                     break;
                 case "admin":
@@ -51,7 +62,7 @@ namespace ap
                         email = txtSignupEmail.Text,
                         role = comboSignupRole.Text,
                         branch = branch,
-                        password = txtSignupPassword.Text
+                        password = hashPassword(txtSignupPassword.Text)
                     };
                     break;
                 default:

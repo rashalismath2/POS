@@ -94,7 +94,11 @@ namespace ap
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-
+            UI.frmReports reports = new UI.frmReports(this.employee);
+            reports.TopLevel = false;
+            pnlMain.Controls.Clear();
+            pnlMain.Controls.Add(reports);
+            reports.Show();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

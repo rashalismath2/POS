@@ -29,3 +29,6 @@ D:\installed programs\v# projects\ap\ap\bin\Debug\BL.pdb
 D:\installed programs\v# projects\ap\ap\bin\Debug\DAO.pdb
 D:\installed programs\v# projects\ap\ap\bin\Debug\MySql.Data.xml
 D:\installed programs\v# projects\ap\ap\bin\Debug\Dapper.xml
+D:\installed programs\v# projects\ap\ap\obj\Debug\UI.frmReports.resources
+D:\installed programs\v# projects\ap\ap\obj\Debug\UI.frmDailyreports.resources
+D:\installed programs\v# projects\ap\ap\obj\Debug\UI.ReportsOfAllBranches.resources

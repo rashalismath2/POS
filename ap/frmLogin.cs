@@ -20,13 +20,28 @@ namespace ap
             InitializeComponent();
             this.dashboard = dashboard;
         }
+        private bool matchHashes(string inputPassword, string dbPassword)
+        {
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(inputPassword);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+
+            if (hash == dbPassword)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
             Employee employee = new EmployeeDAO().getEmployeeByEmail(txtemail.Text);
             if (employee!= null) {
-                if (employee.password==txtPassword.Text) {
+                if (matchHashes(txtPassword.Text,employee.password)) {
 
                     UI.Properties.Settings.Default.email = txtemail.Text;
                     UI.Properties.Settings.Default.password = txtPassword.Text;
@@ -51,6 +66,8 @@ namespace ap
             }
             
         }
+
+
 
         private void lblSignup_Click(object sender, EventArgs e)
         {

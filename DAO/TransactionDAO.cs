@@ -11,6 +11,57 @@ namespace DAO
 {
     public class TransactionDAO
     {
+        public List<string[]> getTransactionsGroupedByDate(int branch_id) {
+
+            using (MySqlConnection connection = getConnection())
+            {
+                string query = @"select total,date from transaction where
+                    employee_id in (select id from employee where branch_id in (@branch_Ids))
+                group by date order by date desc  limit 7;";
+
+                IEnumerable<dynamic> rows = connection.Query<dynamic>(query, new
+                {
+                    branch_Ids = branch_id
+                });
+
+                List<string[]> items =new List<string[]>();
+
+             
+                foreach (var row in rows)
+                {
+                    var fields = row as IDictionary<string, object>;
+                    items.Add(new string[2] { fields["date"].ToString(), fields["total"].ToString() });
+
+                }
+                return items;
+
+            }
+        }
+        public List<string[]> getTransactionForAllBranches()
+        {
+
+            using (MySqlConnection connection = getConnection())
+            {
+                string query = @"select b.id,sum(t.total) as total from transaction as t
+                        inner join employee as e on e.id=t.employee_id
+                        inner join branch as b on b.id=e.branch_id group by b.id; ";
+
+                IEnumerable<dynamic> rows = connection.Query<dynamic>(query);
+
+                List<string[]> items = new List<string[]>();
+
+
+                foreach (var row in rows)
+                {
+                    var fields = row as IDictionary<string, object>;
+                    items.Add(new string[2] { fields["id"].ToString(), fields["total"].ToString() });
+
+                }
+                return items;
+
+            }
+        }
+
         public bool saveTransactions(Transaction transaction)
         {
 
@@ -102,8 +153,10 @@ namespace DAO
                     customer_id=customerId
                 });
 
+                //create an empty list to save the transactions
                 List<Transaction> items = new List<Transaction>();
 
+                //Iterate through all the transactions and add transaction obejct to the list
                 foreach (var row in rows)
                 {
                     var fields = row as IDictionary<string, object>;
